@@ -1,0 +1,355 @@
+/* VinsignPage.css */
+
+.vinsign-page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #ffffff;
+  position: relative;
+  padding-bottom: 60px;
+}
+
+/* ===== Header ===== */
+.vinsign-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 32px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #f3f4f6;
+  flex-shrink: 0;
+  z-index: 3;
+}
+
+.vinsign-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.vinsign-header-logo {
+  color: #155dfc;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.vinsign-header-title {
+  color: #101828;
+  font-family: 'Inter', 'Noto Sans KR', sans-serif;
+  font-weight: 700;
+  font-size: 22.5px;
+  line-height: 32px;
+  margin: 0;
+}
+
+.vinsign-header-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.vinsign-search-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #364153;
+  font-family: 'Inter', 'Noto Sans KR', sans-serif;
+  font-size: 15px;
+  line-height: 24px;
+}
+
+.vinsign-search-btn:hover {
+  background-color: #f3f4f6;
+}
+
+.vinsign-search-btn svg {
+  font-size: 16px;
+}
+
+.vinsign-avatar-wrap {
+  position: relative;
+}
+
+.vinsign-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.vinsign-avatar-status {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 12px;
+  height: 12px;
+  background-color: #00c950;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+}
+
+/* ===== Main Content ===== */
+.vinsign-main {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 32px;
+  flex: 1;
+  z-index: 1;
+}
+
+.vinsign-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.vinsign-title {
+  color: #101828;
+  font-family: 'Inter', 'Noto Sans KR', sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 36px;
+  margin: 0;
+}
+
+.vinsign-subtitle {
+  color: #6a7282;
+  font-family: 'Inter', 'Noto Sans KR', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 24px;
+  margin: 0;
+}
+
+/* ===== Task Cards Grid ===== */
+.vinsign-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+
+.vinsign-card {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow: hidden;
+}
+
+.vinsign-card-top {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.vinsign-card-title {
+  color: #101828;
+  font-family: 'Inter', 'Noto Sans KR', sans-serif;
+  font-weight: 600;
+  font-size: 19px;
+  line-height: 28px;
+  margin: 0;
+}
+
+.vinsign-card-meta {
+  color: #6a7282;
+  font-family: 'Inter', 'Noto Sans KR', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 24px;
+  margin: 0;
+}
+
+.vinsign-card-desc {
+  color: #4a5565;
+  font-family: 'Inter', 'Noto Sans KR', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 24px;
+  margin: 0;
+}
+
+.vinsign-card-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-top: 8px;
+}
+
+.vinsign-card-info-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #6a7282;
+  font-family: 'Inter', 'Noto Sans KR', sans-serif;
+  font-size: 15px;
+  line-height: 24px;
+}
+
+.vinsign-card-info-item svg {
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.vinsign-card-action {
+  display: flex;
+  justify-content: center;
+  padding-top: 8px;
+}
+
+.vinsign-card-btn {
+  background-color: #155dfc;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 0;
+  width: 190px;
+  font-family: 'Inter', 'Noto Sans KR', sans-serif;
+  font-size: 15px;
+  line-height: 24px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.vinsign-card-btn:hover {
+  background-color: #1249d6;
+}
+
+/* ===== CTA Banner ===== */
+.vinsign-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f9fafb;
+  border-radius: 16px;
+  padding: 32px 16px 24px 16px;
+}
+
+.vinsign-cta-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.vinsign-cta-title {
+  color: #101828;
+  font-family: 'Inter', 'Noto Sans KR', sans-serif;
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 28px;
+  margin: 0;
+}
+
+.vinsign-cta-subtitle {
+  color: #6a7282;
+  font-family: 'Inter', 'Noto Sans KR', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 24px;
+  margin: 0;
+}
+
+.vinsign-cta-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #101828;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-family: 'Inter', 'Noto Sans KR', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  cursor: pointer;
+}
+
+.vinsign-cta-btn:hover {
+  background-color: #1e2939;
+}
+
+.vinsign-cta-btn svg {
+  font-size: 16px;
+}
+
+/* ===== Bottom Navigation ===== */
+.vinsign-bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #ffffff;
+  border-top: 1px solid #e5e7eb;
+  padding: 16px 0;
+  z-index: 2;
+}
+
+.vinsign-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.vinsign-nav-item svg {
+  font-size: 20px;
+  color: #99a1af;
+}
+
+.vinsign-nav-item span {
+  font-family: 'Inter', 'Noto Sans KR', sans-serif;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 16px;
+  color: #99a1af;
+}
+
+.vinsign-nav-item.active svg {
+  color: #155dfc;
+}
+
+.vinsign-nav-item.active span {
+  color: #155dfc;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+  .vinsign-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .vinsign-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .vinsign-main {
+    padding: 24px 16px;
+  }
+
+  .vinsign-cta {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+}

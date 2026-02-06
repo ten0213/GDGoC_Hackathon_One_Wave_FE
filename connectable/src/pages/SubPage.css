@@ -1,0 +1,446 @@
+/* src/pages/MainPage.css */
+
+.main-page {
+  display: flex;
+  flex-direction: column; /* Header + Body */
+  width: 100%;
+  height: 100vh;
+  min-height: 100vh;
+  position: relative;
+  background-color: #ffffff;
+  overflow: hidden; /* Prevent body scroll if we want internal scrolling */
+}
+
+.content-wrapper {
+  display: flex;
+  flex: 1; /* Grow to fill remaining space */
+  width: 100%;
+  height: calc(100vh - 72px); /* Fallback or specific calculation if needed, but flex:1 handles it */
+  overflow: hidden; /* Container for sidebar and content */
+}
+
+/* Sidebar */
+.sidebar {
+  width: 256px;
+  height: 100%; /* Fill the content-wrapper height */
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  background-color: #f9fafb;
+  border-right: 1px solid #d1d5dc;
+  gap: 24px;
+  box-sizing: border-box;
+  overflow-y: auto; /* Allow sidebar to scroll independently if needed */
+}
+
+.sidebar-heading {
+  margin-bottom: 8px;
+}
+
+.sidebar-title {
+  color: #1e2939;
+  font-family: 'Inter', 'Noto Sans KR', sans-serif;
+  font-weight: 600;
+  font-size: 16.875px;
+  line-height: 28px;
+  margin: 0;
+}
+
+.nav-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+.nav-item.active {
+  background-color: #eff6ff;
+}
+
+.nav-icon {
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+}
+
+.nav-item.active .nav-icon {
+  color: #1447e6;
+}
+
+.nav-item:not(.active) .nav-icon {
+  color: #364153;
+}
+
+.nav-text {
+  font-family: 'Inter', 'Noto Sans KR', sans-serif;
+  font-size: 15px;
+  line-height: 24px;
+}
+
+.nav-item.active .nav-text {
+  color: #1447e6;
+  font-weight: 400;
+}
+
+.nav-item:not(.active) .nav-text {
+  color: #364153;
+  font-weight: 400;
+}
+
+/* Main Content Area */
+.main-content {
+  flex: 1 0 0;
+  height: 100%; /* Fill the content-wrapper height */
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  gap: 32px;
+  overflow-y: auto; /* Enable vertical scrolling for content area */
+  box-sizing: border-box;
+  background-color: white; /* Ensure background fills area */
+}
+
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.page-title {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.page-title h1 {
+  color: #101828;
+  font-family: 'Inter', 'Noto Sans KR', sans-serif;
+  font-weight: 700;
+  font-size: 28.242px;
+  line-height: 36px;
+  margin: 0;
+}
+
+.page-description {
+  color: #4a5565;
+  font-family: 'Inter', 'Noto Sans KR', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 24px;
+  margin: 0;
+}
+
+.create-task-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #155dfc;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
+.create-task-btn:hover {
+  background-color: #1049c8;
+}
+
+.btn-icon {
+  font-size: 16px;
+  font-weight: 900;
+  line-height: 16px;
+}
+
+.btn-text {
+  font-family: 'Inter', 'Noto Sans KR', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 24px;
+}
+
+/* Content Grid */
+.content-grid {
+  display: flex;
+  gap: 32px;
+  width: 100%;
+  align-items: flex-start;
+  /* If we wanted columns to stretch to same height: */
+  /* align-items: stretch; */
+}
+
+.grid-column {
+  flex: 1 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 0;
+  /* height: 100%; // If we want columns to fill height */
+}
+
+/* Cards */
+.card {
+  background-color: white;
+  border: 1px solid #d1d5dc;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.1), 0px 1px 2px -1px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 0;
+}
+
+.card-icon {
+  font-size: 20px;
+  color: #000;
+  margin-right: 4px;
+}
+
+.card-title {
+  color: black;
+  font-family: 'Inter', 'Noto Sans KR', sans-serif;
+  font-weight: 600;
+  font-size: 18.75px;
+  line-height: 28px;
+  margin: 0;
+}
+
+/* Buttons inside Card */
+.card-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.action-btn-primary {
+  background-color: #eff6ff;
+  border-radius: 8px;
+  padding: 16px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.action-btn-primary .icon {
+  color: #1447e6;
+  font-size: 16px;
+}
+
+.action-btn-primary .text {
+  color: #1447e6;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 24px;
+}
+
+.action-btn-secondary {
+  background-color: transparent;
+  border: 1px solid #d1d5dc;
+  border-radius: 8px;
+  padding: 16px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.action-btn-secondary .icon {
+  color: #364153;
+  font-size: 16px;
+}
+
+.action-btn-secondary .text {
+  color: #364153;
+  font-weight: 500;
+  font-size: 15.125px;
+  line-height: 24px;
+}
+
+.card-description {
+  color: #364153;
+  font-size: 14.875px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+/* List Items in Card */
+.list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  padding-top: 8px;
+}
+
+.list-item {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.list-content-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.item-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px; /* Gap between title and subtext */
+}
+
+.item-title {
+  color: black;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 24px;
+  margin: 0;
+}
+
+.item-meta {
+  color: #6a7282;
+  font-size: 13.234px;
+  line-height: 20px;
+  margin: 0;
+}
+
+.item-arrow {
+  color: #99a1af;
+  font-size: 16px;
+}
+
+.list-btn-view-all {
+  border: 1px solid #d1d5dc;
+  background: white;
+  padding: 12px;
+  border-radius: 8px;
+  width: 100%;
+  text-align: center;
+  color: #364153;
+  font-weight: 500;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+/* Job Seekers Section */
+.seeker-item {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 0; /* Removing double margin possibility */
+}
+
+.seeker-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.seeker-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.seeker-name {
+  color: black;
+  font-weight: 600;
+  font-size: 15.25px;
+  line-height: 24px;
+  margin: 0;
+}
+
+.seeker-role {
+  color: #4a5565;
+  font-size: 15px;
+  line-height: 24px;
+  margin: 0;
+}
+
+.seeker-stats {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.score-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.star-icon {
+  color: #f0b100;
+  font-size: 16px;
+}
+
+.score-text {
+  color: black;
+  font-weight: 700;
+  font-size: 15.375px;
+  line-height: 24px;
+}
+
+.date-text {
+  color: #6a7282;
+  font-size: 13.453px;
+  line-height: 20px;
+}
+
+.info-box {
+  background-color: #f9fafb;
+  padding: 16px;
+  border-radius: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.info-text {
+  color: #364153;
+  font-size: 13.016px;
+  line-height: 20px;
+  white-space: pre-wrap;
+  margin: 0;
+}

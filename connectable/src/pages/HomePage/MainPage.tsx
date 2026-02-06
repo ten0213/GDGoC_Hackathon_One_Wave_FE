@@ -1,8 +1,9 @@
+import { useNavigate } from 'react-router-dom'
 import Header from '../../components/Header/Unlogin_Header'
 import Footer from '../../layout/Footer/Footer'
 import ProcessCard from '../../components/ProcessCard/ProcessCard'
 import ScoreCard from '../../components/ScoreCard/ScoreCard'
-import styles from './HomePage.module.css'
+import styles from './MainPage.module.css'
 
 const processSteps = [
   {
@@ -39,6 +40,12 @@ const featureItems = [
 ]
 
 export default function HomePage() {
+  const navigate = useNavigate()
+
+  const handleExperienceClick = () => {
+    navigate('/subpage')
+  }
+
   return (
     <div>
       <Header />
@@ -47,7 +54,7 @@ export default function HomePage() {
         {/* Hero Section */}
         <section className={styles.hero}>
           <h1 className={styles.heroTitle}>
-            프론트엔드 구현과제, <span className={styles.accent}>AI가 정확하게 <br/>채점합니다</span>
+            프론트엔드 구현과제, <span className={styles.accent}>AI가 정확하게 <br />채점합니다</span>
           </h1>
           <p className={styles.heroDescription}>
             구인 회사가 업로드한 구현과제를 구직자가 제출하면, Playwright 기반 AI가 자동으로
@@ -56,9 +63,10 @@ export default function HomePage() {
             모든 과정이 투명하고, 세부 과제별 결과를 실시간으로 확인하세요.
           </p>
           <div className={styles.heroActions}>
-            <button className={styles.btnPrimary}>채험하기</button>
+            <button className={styles.btnPrimary} onClick={handleExperienceClick}>채험하기</button>
           </div>
         </section>
+
 
         {/* Process Section */}
         <section className={styles.processSection}>
