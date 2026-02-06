@@ -1,17 +1,21 @@
 import { useRef, useState } from "react";
-import { FaCloudUploadAlt, FaVial, FaCheckCircle } from "react-icons/fa";
+import { FaCloudUploadAlt, FaVial, FaCheckCircle, FaInbox } from "react-icons/fa";
 import Header from "../components/Header";
 import "./TaskDetail.css";
 
-const gradingResults = [
-  { label: "반응형 레이아웃", status: "pass" as const },
-  { label: "버튼 상호작용", status: "fail" as const },
-  { label: "접근성", status: "pass" as const },
-];
+interface GradingResult {
+  label: string;
+  status: "pass" | "fail";
+}
 
 export default function TaskDetail() {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [file, setFile] = useState<File | null>(null);
+
+  // 채점 상태: "idle" (제출 전) | "grading" (채점 중) | "done" (결과 수신)
+  const [phase, setPhase] = useState<"idle" | "grading" | "done">("idle");
+  const [gradingResults, setGradingResults] = useState<GradingResult[]>([]);
+  const [totalScore, setTotalScore] = useState<number | null>(null);
 
   /** zip 파일 검증 + 저장 */
   const handleFile = (file: File) => {
@@ -46,6 +50,32 @@ export default function TaskDetail() {
     }
   };
 
+  /** 제출 → 백엔드 연동 시 여기만 수정 */
+  const handleSubmit = async () => {
+    if (!file) return;
+    setPhase("grading");
+
+    // TODO: 실제 백엔드 API 호출로 교체
+    // const formData = new FormData();
+    // formData.append("file", file);
+    // const res = await fetch("/api/grade", { method: "POST", body: formData });
+    // const data = await res.json();
+    // setGradingResults(data.results);
+    // setTotalScore(data.totalScore);
+    // setPhase("done");
+
+    // 임시 시뮬레이션 (3초 후 결과 표시) — 백엔드 연동 시 삭제
+    setTimeout(() => {
+      setGradingResults([
+        { label: "반응형 레이아웃", status: "pass" },
+        { label: "버튼 상호작용", status: "fail" },
+        { label: "접근성", status: "pass" },
+      ]);
+      setTotalScore(80);
+      setPhase("done");
+    }, 3000);
+  };
+
   return (
     <div className="td-page">
       <Header />
@@ -67,7 +97,7 @@ export default function TaskDetail() {
             <div className="td-column">
               <div className="card">
                 <div className="card-header">
-                  <h3 className="card-title">구현과제 상세 페이지</h3>
+                  <h3 className="card-title">[제목란]</h3>
                 </div>
 
                 <div className="td-content-box">
@@ -80,6 +110,10 @@ export default function TaskDetail() {
 
                 <div className="td-content-box">
                   <h4 className="td-section-title">서브테스크 내용</h4>
+                  <div className="td-subtask-lineup">
+                    -Tailwind Css 사용<br/>
+                    -사용자 프로필 카드, 최근 활동 테이블, 차트 존재
+                  </div>
                 </div>
 
                 {/* 업로드 섹션 */}
@@ -109,8 +143,12 @@ export default function TaskDetail() {
                 </div>
 
                 <div className="td-btn-wrap">
-                  <button className="td-submit-btn" disabled={!file}>
-                    제출 하기
+                  <button
+                    className="td-submit-btn"
+                    disabled={!file || phase !== "idle"}
+                    onClick={handleSubmit}
+                  >
+                    {phase === "idle" ? "제출 하기" : phase === "grading" ? "채점 중..." : "제출 완료"}
                   </button>
                 </div>
               </div>
@@ -118,67 +156,121 @@ export default function TaskDetail() {
 
             {/* 오른쪽 영역 */}
             <div className="td-column">
-              <div className="card">
-                <div className="card-header">
-                  <h3 className="card-title">AI 채점 진행 상황</h3>
+              {/* ── 제출 전: 대기 안내 ── */}
+              {phase === "idle" && (
+                <div className="card">
+                  <div className="td-idle-placeholder">
+                    <FaInbox className="td-idle-icon" />
+                    <p className="td-idle-title">아직 제출된 과제가 없습니다</p>
+                    <p className="td-idle-desc">
+                      파일을 업로드하고 제출하면 AI 채점이 시작됩니다.
+                    </p>
+                  </div>
                 </div>
+              )}
 
-                <div className="td-ai-list">
-                  <div className="td-ai-item">
-                    <div className="td-ai-left">
-                      <div className="td-ai-icon td-ai-icon-blue">
-                        <FaVial />
+              {/* ── 채점 중: 스피너 + 진행 상황 ── */}
+              {phase === "grading" && (
+                <div className="card">
+                  <div className="card-header">
+                    <h3 className="card-title">AI 채점 진행 상황</h3>
+                  </div>
+                  <div className="td-ai-list">
+                    <div className="td-ai-item">
+                      <div className="td-ai-left">
+                        <div className="td-ai-icon td-ai-icon-blue">
+                          <FaVial />
+                        </div>
+                        <div className="td-ai-info">
+                          <span className="td-ai-name">Playwright 채점 진행 중</span>
+                          <span className="td-ai-desc">브라우저 자동화 진행</span>
+                        </div>
                       </div>
-                      <div className="td-ai-info">
-                        <span className="td-ai-name">Playwright 채점 진행 중</span>
-                        <span className="td-ai-desc">브라우저 자동화 진행</span>
-                      </div>
+                      <div className="spinner" />
                     </div>
-                    <div className="td-progress-bar">
-                      <div
-                        className="td-progress-fill"
-                        style={{ width: "75%" }}
-                      />
+                    <div className="td-ai-item">
+                      <div className="td-ai-left">
+                        <div className="td-ai-icon td-ai-icon-purple">
+                          <FaCheckCircle />
+                        </div>
+                        <div className="td-ai-info">
+                          <span className="td-ai-name">Sub-task 평가</span>
+                        </div>
+                      </div>
+                      <span className="td-badge td-badge-progress">진행 중</span>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* ── 결과 수신 후: 채점 결과 + 총점 ── */}
+              {phase === "done" && (
+                <>
+                  <div className="card">
+                    <div className="card-header">
+                      <h3 className="card-title">AI 채점 진행 상황</h3>
+                    </div>
+                    <div className="td-ai-list">
+                      <div className="td-ai-item">
+                        <div className="td-ai-left">
+                          <div className="td-ai-icon td-ai-icon-blue">
+                            <FaVial />
+                          </div>
+                          <div className="td-ai-info">
+                            <span className="td-ai-name">Playwright 채점</span>
+                            <span className="td-ai-desc">채점 완료</span>
+                          </div>
+                        </div>
+                        <span className="td-badge td-badge-pass">완료</span>
+                      </div>
+                      <div className="td-ai-item">
+                        <div className="td-ai-left">
+                          <div className="td-ai-icon td-ai-icon-purple">
+                            <FaCheckCircle />
+                          </div>
+                          <div className="td-ai-info">
+                            <span className="td-ai-name">Sub-task 평가</span>
+                          </div>
+                        </div>
+                        <span className="td-badge td-badge-pass">완료</span>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="td-ai-item">
-                    <div className="td-ai-left">
-                      <div className="td-ai-icon td-ai-icon-purple">
-                        <FaCheckCircle />
-                      </div>
-                      <div className="td-ai-info">
-                        <span className="td-ai-name">Sub-task 평가</span>
-                        <span className="td-ai-desc">5/7 완료</span>
-                      </div>
+                  <div className="card">
+                    <div className="card-header">
+                      <h3 className="card-title">구현과제 채점 결과</h3>
                     </div>
-                    <span className="td-badge td-badge-progress">진행 중</span>
+                    <div className="td-results-list">
+                      {gradingResults.map((item) => (
+                        <div key={item.label} className="td-result-item">
+                          <span className="td-result-label">{item.label}</span>
+                          <span
+                            className={`td-badge ${
+                              item.status === "pass"
+                                ? "td-badge-pass"
+                                : "td-badge-fail"
+                            }`}
+                          >
+                            {item.status === "pass" ? "통과" : "실패"}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              </div>
 
-              <div className="card">
-                <div className="card-header">
-                  <h3 className="card-title">구현과제 채점 결과</h3>
-                </div>
-
-                <div className="td-results-list">
-                  {gradingResults.map((item) => (
-                    <div key={item.label} className="td-result-item">
-                      <span className="td-result-label">{item.label}</span>
-                      <span
-                        className={`td-badge ${
-                          item.status === "pass"
-                            ? "td-badge-pass"
-                            : "td-badge-fail"
-                        }`}
-                      >
-                        {item.status === "pass" ? "통과" : "실패"}
-                      </span>
+                  {totalScore !== null && (
+                    <div className="card">
+                      <div className="DetailResultForm">
+                        <span className="DetailResultName">
+                          총점:&nbsp;
+                          <span className="DetailResultScore">{totalScore}</span>
+                        </span>
+                      </div>
                     </div>
-                  ))}
-                </div>
-              </div>
+                  )}
+                </>
+              )}
             </div>
           </div>
         </main>

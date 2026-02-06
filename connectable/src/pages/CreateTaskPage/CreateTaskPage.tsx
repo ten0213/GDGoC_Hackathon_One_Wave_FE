@@ -5,7 +5,6 @@ import styles from './CreateTaskPage.module.css'
 interface Subtask {
   id: number
   title: string
-  description: string
 }
 
 let nextId = 3
@@ -14,20 +13,20 @@ export default function CreateTaskPage() {
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
   const [subtasks, setSubtasks] = useState<Subtask[]>([
-    { id: 1, title: '데이터베이스 스키마 설계', description: 'User, Session 테이블 생성 및 관계 정의' },
-    { id: 2, title: 'JWT 인증 미들웨어 구현', description: '토큰 검증 및 사용자 객체를 request에 주입' },
+    { id: 1, title: '데이터베이스 스키마 설계'},
+    { id: 2, title: 'JWT 인증 미들웨어 구현'},
   ])
 
   const addSubtask = () => {
     if (subtasks.length >= 3) return
-    setSubtasks([...subtasks, { id: nextId++, title: '', description: '' }])
+    setSubtasks([...subtasks, { id: nextId++, title: '' }])
   }
 
   const removeSubtask = (id: number) => {
     setSubtasks(subtasks.filter((s) => s.id !== id))
   }
 
-  const updateSubtask = (id: number, field: 'title' | 'description', value: string) => {
+  const updateSubtask = (id: number, field: 'title', value: string) => {
     setSubtasks(subtasks.map((s) => (s.id === id ? { ...s, [field]: value } : s)))
   }
 
@@ -118,13 +117,6 @@ export default function CreateTaskPage() {
                         value={subtask.title}
                         onChange={(e) => updateSubtask(subtask.id, 'title', e.target.value)}
                       />
-                      <textarea
-                        className={styles.subtaskDescInput}
-                        placeholder="서브테스크 설명"
-                        value={subtask.description}
-                        onChange={(e) => updateSubtask(subtask.id, 'description', e.target.value)}
-                        rows={1}
-                      />
                     </div>
                     <button className={styles.deleteBtn} onClick={() => removeSubtask(subtask.id)}>
                       <i className="fas fa-trash-alt"></i>
@@ -149,7 +141,7 @@ export default function CreateTaskPage() {
                   subtasks.length === 0 ||
                   !title.trim() ||
                   !content.trim() ||
-                  subtasks.some((s) => !s.title.trim() || !s.description.trim())
+                  subtasks.some((s) => !s.title.trim())
                 }
               >
                 제출하기
