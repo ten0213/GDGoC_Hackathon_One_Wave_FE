@@ -1,0 +1,50 @@
+.footer {
+  border-top: 1px solid #d1d5dc;
+  padding: 32px 40px;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo i {
+  font-size: 20px;
+  color: #155dfc;
+}
+
+.logo span {
+  font-size: 17px;
+  font-weight: 700;
+  color: #101828;
+  line-height: 28px;
+}
+
+.copyright {
+  font-size: 13px;
+  font-weight: 400;
+  color: #6a7282;
+  line-height: 20px;
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.socials a {
+  font-size: 16px;
+  color: #6a7282;
+}
+
+.socials a:hover {
+  color: #364153;
+}

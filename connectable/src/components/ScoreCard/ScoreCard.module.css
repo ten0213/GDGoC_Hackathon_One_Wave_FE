@@ -1,0 +1,118 @@
+.card {
+  width: 500px;
+  min-width: 500px;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 24px;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #dbeafe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar i {
+  font-size: 16px;
+  color: #155dfc;
+}
+
+.name {
+  font-size: 15px;
+  font-weight: 500;
+  color: #101828;
+  line-height: 24px;
+}
+
+.task {
+  font-size: 13px;
+  font-weight: 400;
+  color: #6a7282;
+  line-height: 20px;
+}
+
+.badge {
+  padding: 4px 12px;
+  border-radius: 9999px;
+  background-color: #dcfce7;
+  font-size: 13px;
+  font-weight: 500;
+  color: #016630;
+  line-height: 20px;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+}
+
+.scoreRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.scoreLabel {
+  font-size: 15px;
+  font-weight: 400;
+  color: #364153;
+  line-height: 24px;
+}
+
+.scoreValue {
+  font-size: 15px;
+  font-weight: 600;
+  color: #000000;
+  line-height: 24px;
+}
+
+.bar {
+  width: 100%;
+  height: 8px;
+  border-radius: 9999px;
+  background-color: #e5e7eb;
+  position: relative;
+}
+
+.barFill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 8px;
+  border-radius: 9999px;
+}
+
+.green {
+  background-color: #00c950;
+}
+
+.blue {
+  background-color: #2b7fff;
+}
+
+.orange {
+  background-color: #fe9a00;
+}

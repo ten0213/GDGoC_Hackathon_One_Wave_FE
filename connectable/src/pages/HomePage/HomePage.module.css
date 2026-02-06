@@ -1,0 +1,149 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  padding: 64px 40px;
+  margin-top: 81px;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 768px;
+}
+
+.heroTitle {
+  font-size: 45px;
+  font-weight: 700;
+  line-height: 60px;
+  color: #101828;
+}
+
+.accent {
+  color: #155dfc;
+}
+
+.heroDescription {
+  font-size: 18.5px;
+  font-weight: 400;
+  line-height: 32.5px;
+  color: #4a5565;
+}
+
+.heroActions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding-top: 16px;
+}
+
+.btnPrimary {
+  padding: 16px 32px;
+  border-radius: 8px;
+  background-color: #155dfc;
+  font-size: 17px;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 28px;
+}
+
+.btnPrimary:hover {
+  background-color: #1350d9;
+}
+
+.btnOutline {
+  padding: 16px 32px;
+  border-radius: 8px;
+  border: 1px solid #d1d5dc;
+  font-size: 17px;
+  font-weight: 600;
+  color: #364153;
+  line-height: 28px;
+  background-color: #ffffff;
+}
+
+.btnOutline:hover {
+  background-color: #f9fafb;
+}
+
+/* Process Section */
+.processSection {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  width: 100%;
+}
+
+.processTitle {
+  font-size: 28px;
+  font-weight: 700;
+  color: #101828;
+  text-align: center;
+  line-height: 36px;
+}
+
+.processGrid {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Feature Section */
+.featureSection {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  background-color: #f9fafb;
+  border-radius: 16px;
+  padding: 40px;
+}
+
+.featureContent {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 672px;
+}
+
+.featureTitle {
+  font-size: 28px;
+  font-weight: 700;
+  color: #101828;
+  line-height: 36px;
+}
+
+.featureDescription {
+  font-size: 15px;
+  font-weight: 400;
+  color: #4a5565;
+  line-height: 24px;
+}
+
+.featureList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 8px;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.featureItem i {
+  font-size: 16px;
+  color: #00c950;
+}
+
+.featureItem span {
+  font-size: 15px;
+  font-weight: 400;
+  color: #364153;
+  line-height: 24px;
+}
