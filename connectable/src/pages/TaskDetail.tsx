@@ -94,7 +94,6 @@ export default function TaskDetail() {
                 <div className="card-header">
                   <h3 className="card-title">구현과제 채점 결과</h3>
                 </div>
-
                 <div className="td-results-list">
                   {gradingResults.map((item) => (
                     <div key={item.label} className="td-result-item">

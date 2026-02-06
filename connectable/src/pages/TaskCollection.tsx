@@ -1,5 +1,9 @@
 import { FaSearch, FaFile, FaClock, FaCode, FaChartBar, FaCog, FaClipboardList, FaUsers, FaArrowRight } from "react-icons/fa";
 import './TaskCollection.css';
+import { useNavigate } from "react-router-dom";
+import Header from "../components/Header";
+
+
 
 const userAvatar = "https://ui-avatars.com/api/?name=User&background=random";
 
@@ -39,27 +43,16 @@ function TechIcon({ type }: { type: "file" | "code" }) {
 }
 
 export default function VinsignPage() {
+
+  const navigate = useNavigate();
+
+const handleSolveClick = () => {
+  navigate('/TaskDetail');
+};
   return (
     <div className="vinsign-page">
       {/* Header */}
-      <header className="vinsign-header">
-        <div className="vinsign-header-left">
-          <div className="vinsign-header-logo">
-            <FaClipboardList />
-          </div>
-          <h1 className="vinsign-header-title">구현 과제 모아보기</h1>
-        </div>
-        <div className="vinsign-header-right">
-          <button className="vinsign-search-btn">
-            <FaSearch />
-            <span>검색</span>
-          </button>
-          <div className="vinsign-avatar-wrap">
-            <img className="vinsign-avatar" src={userAvatar} alt="프로필" />
-            <div className="vinsign-avatar-status" />
-          </div>
-        </div>
-      </header>
+      <Header/>
 
       {/* Main Content */}
       <main className="vinsign-main">
@@ -88,7 +81,7 @@ export default function VinsignPage() {
                 </div>
               </div>
               <div className="vinsign-card-action">
-                <button className="vinsign-card-btn">문제 풀기</button>
+                <button className="vinsign-card-btn" onClick={handleSolveClick}>문제 풀기</button>
               </div>
             </div>
           ))}
