@@ -8,6 +8,7 @@ import MainPage from './pages/HomePage/MainPage'
 import CreateTaskPage from './pages/CreateTaskPage/CreateTaskPage'
 import TaskColletion from './pages/TaskCollection'
 import TaskDetail from './pages/TaskDetail'
+import CompanyTaskDetail from './pages/CompanyTaskDetail'
 
   
 
@@ -22,6 +23,7 @@ function App() {
       <Route path="/" element={<MainPage/>}/>
       <Route path="tasks" element={<TaskCollection/>}/>
       <Route path="TaskDetail" element={<TaskDetail/>}/>
+      <Route path="/company-task" element={<CompanyTaskDetail/>}/>
     </Routes>
   )
 }
