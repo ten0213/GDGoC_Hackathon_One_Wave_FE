@@ -41,9 +41,10 @@ export default function CreateTaskPage() {
           <p className={styles.pageDescription}>새로운 개발 과제의 세부 정보를 입력하세요.</p>
         </div>
 
-        {/* Form */}
-        <div className={styles.formContainer}>
-          <div className={styles.form}>
+        {/* Two Column Layout */}
+        <div className={styles.formGrid}>
+          {/* Left Column: 제목 + 내용 */}
+          <div className={styles.leftColumn}>
             {/* Title Section */}
             <div className={`${styles.section} ${styles.titleSection}`}>
               <div className={styles.sectionHeader}>
@@ -78,21 +79,13 @@ export default function CreateTaskPage() {
                 maxLength={2000}
               />
               <div className={styles.contentFooter}>
-                <div className={styles.formatButtons}>
-                  <button className={styles.formatBtn}>
-                    <i className="fas fa-bold"></i>
-                  </button>
-                  <button className={styles.formatBtn}>
-                    <i className="fas fa-italic"></i>
-                  </button>
-                  <button className={styles.formatBtn}>
-                    <i className="fas fa-link"></i>
-                  </button>
-                </div>
                 <span className={styles.charCount}>{content.length} / 2000자</span>
               </div>
             </div>
+          </div>
 
+          {/* Right Column: 서브테스크 + 제출 */}
+          <div className={styles.rightColumn}>
             {/* Subtask Section */}
             <div className={`${styles.section} ${styles.subtaskSection}`}>
               <div className={styles.subtaskHeader}>
@@ -143,11 +136,10 @@ export default function CreateTaskPage() {
                 </div>
               </div>
             </div>
-             <div className={styles.section}>
-                <button className={styles.submitBtn}>
-                  <span>제출하기</span>
-                </button>
-              </div>
+
+            <div className={styles.submitSection}>
+              <button className={styles.submitBtn}>제출하기</button>
+            </div>
           </div>
         </div>
       </main>

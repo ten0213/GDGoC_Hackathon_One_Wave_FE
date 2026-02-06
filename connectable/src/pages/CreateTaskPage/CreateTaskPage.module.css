@@ -2,11 +2,9 @@
 .main {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 32px;
   padding: 24px 32px;
 }
-
 
 /* ===== Page Header ===== */
 .pageHeader {
@@ -29,21 +27,29 @@
   line-height: 24px;
 }
 
-/* ===== Form Container ===== */
-.formContainer {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  min-height: 1142px;
+/* ===== Two Column Grid ===== */
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 0.7fr;
+  gap: 32px;
+  width: 80%;
 }
 
-.form {
+.leftColumn {
   display: flex;
   flex-direction: column;
   gap: 32px;
-  width: 907px;
-  max-width: 100%;
 }
+
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 600px;   /* 여기서 줄임 */
+  width: 100%;
+  margin: 0 auto;     /* grid 셀 안에서 가운데 */
+}
+
 
 /* ===== Section Card ===== */
 .section {
@@ -95,23 +101,13 @@
 
 /* ===== Title Section ===== */
 .titleSection {
-  position: relative;
-  height: 180px;
-}
-
-.titleSection .sectionHeader {
-  position: absolute;
-  top: 24px;
-  left: 24px;
-  right: 24px;
-  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .titleInput {
-  position: absolute;
-  top: 72px;
-  left: 24px;
-  right: 24px;
+  width: 100%;
   padding: 15px 16px;
   background-color: #ffffff;
   border: 1px solid #d1d5dc;
@@ -133,10 +129,6 @@
 }
 
 .titleHint {
-  position: absolute;
-  top: 134px;
-  left: 24px;
-  right: 24px;
   font-size: 13px;
   font-weight: 400;
   color: #6a7282;
@@ -148,11 +140,12 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+  flex: 1;
 }
 
 .textarea {
   width: 100%;
-  min-height: 264px;
+  min-height: 300px;
   padding: 12px 16px;
   background-color: #ffffff;
   border: 1px solid #d1d5dc;
@@ -164,6 +157,7 @@
   line-height: 24px;
   outline: none;
   resize: none;
+  flex: 1;
 }
 
 .textarea::placeholder {
@@ -377,12 +371,10 @@
   text-align: center;
 }
 
+/* ===== Submit ===== */
 .submitSection {
   display: flex;
   justify-content: flex-end;
-  padding: 0;
-  background: transparent;
-  border: none;
 }
 
 .submitBtn {
@@ -399,4 +391,3 @@
 .submitBtn:hover {
   background-color: #1350d9;
 }
-
