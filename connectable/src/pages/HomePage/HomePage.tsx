@@ -1,5 +1,5 @@
-import Header from '../../components/Header/Header'
-import Footer from '../../components/Footer/Footer'
+import Header from '../../components/Header/Unlogin_Header'
+import Footer from '../../layout/Footer/Footer'
 import ProcessCard from '../../components/ProcessCard/ProcessCard'
 import ScoreCard from '../../components/ScoreCard/ScoreCard'
 import styles from './HomePage.module.css'
@@ -56,8 +56,7 @@ export default function HomePage() {
             모든 과정이 투명하고, 세부 과제별 결과를 실시간으로 확인하세요.
           </p>
           <div className={styles.heroActions}>
-            <button className={styles.btnPrimary}>채점 체험하기</button>
-            <button className={styles.btnOutline}>데모 영상 보기</button>
+            <button className={styles.btnPrimary}>채험하기</button>
           </div>
         </section>
 
