@@ -26,23 +26,26 @@
   display: flex;
   align-items: center;
   gap: 12px;
+  cursor: pointer;
 }
 
 .brand-icon {
   color: #155dfc;
-  font-size: 24px;
+  font-size: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 .brand-name {
   color: #101828;
   font-family: 'Inter', sans-serif;
   font-weight: 700;
-  font-size: 22.688px;
+  font-size: 24px;
   line-height: 32px;
   margin: 0;
+  cursor: pointer;
 }
 
 /* Navigation Section */
