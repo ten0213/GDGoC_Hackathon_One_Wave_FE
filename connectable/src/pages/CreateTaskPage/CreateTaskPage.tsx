@@ -1,21 +1,23 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Header from '../../components/Header'
 import styles from './CreateTaskPage.module.css'
+import { createAssignment } from '../../api/assignments'
+import { getUserId } from '../../utils/userId'
 
 interface Subtask {
   id: number
   title: string
 }
 
-let nextId = 3
+let nextId = 1
 
 export default function CreateTaskPage() {
+  const navigate = useNavigate()
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
-  const [subtasks, setSubtasks] = useState<Subtask[]>([
-    { id: 1, title: '데이터베이스 스키마 설계'},
-    { id: 2, title: 'JWT 인증 미들웨어 구현'},
-  ])
+  const [subtasks, setSubtasks] = useState<Subtask[]>([])
+  const [submitting, setSubmitting] = useState(false)
 
   const addSubtask = () => {
     if (subtasks.length >= 3) return
@@ -28,6 +30,23 @@ export default function CreateTaskPage() {
 
   const updateSubtask = (id: number, field: 'title', value: string) => {
     setSubtasks(subtasks.map((s) => (s.id === id ? { ...s, [field]: value } : s)))
+  }
+
+  const handleSubmit = async () => {
+    if (submitting) return
+    setSubmitting(true)
+    try {
+      const result = await createAssignment({
+        title,
+        content,
+        subtasks: subtasks.map((s) => s.title),
+        userId: getUserId(),
+      })
+      navigate(`/TaskDetail/${result.id}`)
+    } catch (err) {
+      alert(err instanceof Error ? err.message : '과제 생성에 실패했습니다.')
+      setSubmitting(false)
+    }
   }
 
   return (
@@ -138,13 +157,15 @@ export default function CreateTaskPage() {
               <button
                 className={styles.submitBtn}
                 disabled={
+                  submitting ||
                   subtasks.length === 0 ||
                   !title.trim() ||
                   !content.trim() ||
                   subtasks.some((s) => !s.title.trim())
                 }
+                onClick={handleSubmit}
               >
-                제출하기
+                {submitting ? '제출 중...' : '제출하기'}
               </button>
             </div>
           </div>

@@ -1,7 +1,10 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useParams } from "react-router-dom";
 import { FaCloudUploadAlt, FaVial, FaCheckCircle, FaInbox } from "react-icons/fa";
 import Header from "../components/Header";
 import "./TaskDetail.css";
+import { getAssignmentById } from "../api/assignments";
+import type { Assignment } from "../api/assignments";
 
 interface GradingResult {
   label: string;
@@ -9,13 +12,26 @@ interface GradingResult {
 }
 
 export default function TaskDetail() {
+  const { id } = useParams<{ id: string }>();
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [file, setFile] = useState<File | null>(null);
+
+  const [assignment, setAssignment] = useState<Assignment | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   // 채점 상태: "idle" (제출 전) | "grading" (채점 중) | "done" (결과 수신)
   const [phase, setPhase] = useState<"idle" | "grading" | "done">("idle");
   const [gradingResults, setGradingResults] = useState<GradingResult[]>([]);
   const [totalScore, setTotalScore] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (!id) return;
+    getAssignmentById(id)
+      .then((data) => setAssignment(data))
+      .catch((err) => setError(err.message))
+      .finally(() => setLoading(false));
+  }, [id]);
 
   /** zip 파일 검증 + 저장 */
   const handleFile = (file: File) => {
@@ -56,15 +72,6 @@ export default function TaskDetail() {
     setPhase("grading");
 
     // TODO: 실제 백엔드 API 호출로 교체
-    // const formData = new FormData();
-    // formData.append("file", file);
-    // const res = await fetch("/api/grade", { method: "POST", body: formData });
-    // const data = await res.json();
-    // setGradingResults(data.results);
-    // setTotalScore(data.totalScore);
-    // setPhase("done");
-
-    // 임시 시뮬레이션 (3초 후 결과 표시) — 백엔드 연동 시 삭제
     setTimeout(() => {
       setGradingResults([
         { label: "반응형 레이아웃", status: "pass" },
@@ -75,6 +82,10 @@ export default function TaskDetail() {
       setPhase("done");
     }, 3000);
   };
+
+  if (loading) return <div className="td-page"><Header /><p style={{ padding: '2rem' }}>로딩 중...</p></div>;
+  if (error) return <div className="td-page"><Header /><p style={{ padding: '2rem' }}>오류: {error}</p></div>;
+  if (!assignment) return <div className="td-page"><Header /><p style={{ padding: '2rem' }}>과제를 찾을 수 없습니다.</p></div>;
 
   return (
     <div className="td-page">
@@ -97,22 +108,22 @@ export default function TaskDetail() {
             <div className="td-column">
               <div className="card">
                 <div className="card-header">
-                  <h3 className="card-title">[제목란]</h3>
+                  <h3 className="card-title">{assignment.title}</h3>
                 </div>
 
                 <div className="td-content-box">
                   <h4 className="td-section-title">구현과제 내용</h4>
                   <p className="td-description">
-                    Next.js 14와 Tailwind CSS를 사용하여 대시보드 페이지를 구현하세요.
-                    사용자 프로필 카드, 최근 활동 테이블, 차트 컴포넌트가 포함되어야 합니다.
+                    {assignment.content}
                   </p>
                 </div>
 
                 <div className="td-content-box">
                   <h4 className="td-section-title">서브테스크 내용</h4>
                   <div className="td-subtask-lineup">
-                    -Tailwind Css 사용<br/>
-                    -사용자 프로필 카드, 최근 활동 테이블, 차트 존재
+                    {assignment.subtasks.map((st, i) => (
+                      <span key={i}>-{st}<br/></span>
+                    ))}
                   </div>
                 </div>
 

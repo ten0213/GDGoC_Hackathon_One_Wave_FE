@@ -35,8 +35,7 @@ const processSteps = [
 const featureItems = [
   '실제 브라우저 환경에서의 동작 검증',
   '구현과제별 Sub-task 상세 채점',
-  '모든 구직자 점수 비교 대시보드',
-  '회사 전용 관리자 페이지 제공',
+  '구인자에게는 제출자 확인 서비스'
 ]
 
 export default function HomePage() {
@@ -82,11 +81,11 @@ export default function HomePage() {
         <section className={styles.featureSection}>
           <div className={styles.featureContent}>
             <h3 className={styles.featureTitle}>
-              프로그래머스, 백준을 참고한 직관적인 인터페이스
+              직관적인 인터페이스
             </h3>
             <p className={styles.featureDescription}>
-              익숙한 문제 해결 환경에서 AI 채점의 강력함을 경험하세요. 실시간 진행 상태, 세부 점수
-              분석, 비교 차트까지
+              익숙한 문제 해결 환경에서 AI 채점의 강력함을 경험하세요.<br/>
+              서브테스크 별 채점 결과, 총점 등
               <br />
               모든 데이터를 한눈에 확인할 수 있습니다.
             </p>
