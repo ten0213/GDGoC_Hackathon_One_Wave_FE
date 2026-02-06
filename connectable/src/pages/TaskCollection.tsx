@@ -1,41 +1,33 @@
-import { FaSearch, FaFile, FaClock, FaCode, FaChartBar, FaCog, FaClipboardList, FaUsers, FaArrowRight } from "react-icons/fa";
+import { useEffect, useState } from "react";
+import { FaArrowRight } from "react-icons/fa";
 import './TaskCollection.css';
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../layout/Footer/Footer";
-
-
-
-const userAvatar = "https://ui-avatars.com/api/?name=User&background=random";
-
-const tasks = [
-  {
-    title: "UI/UX 디자인 리뉴얼",
-    author: "김지원",
-    date: "2025.03",
-    description: "기존 이커머스 앱의 사용자 경험을 분석하고 전체적인 인터페이스를 재설계한 프로젝트입니다.",
-    techIcon: "file" as const,
-  },
-];
-
-function TechIcon({ type }: { type: "file" | "code" }) {
-  if (type === "file") return <FaFile />;
-  return <FaCode />;
-}
+import { getAssignments } from "../api/assignments";
+import type { Assignment } from "../api/assignments";
 
 export default function VinsignPage() {
-
   const navigate = useNavigate();
+  const [tasks, setTasks] = useState<Assignment[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-const handleSolveClick = () => {
-  navigate('/TaskDetail');
-};
+  useEffect(() => {
+    getAssignments()
+      .then((res) => setTasks(res.content))
+      .catch((err) => setError(err.message))
+      .finally(() => setLoading(false));
+  }, []);
+
+  const handleSolveClick = (id: string) => {
+    navigate(`/TaskDetail/${id}`);
+  };
+
   return (
     <div className="vinsign-page">
-      {/* Header */}
       <Header/>
 
-      {/* Main Content */}
       <main className="vinsign-main">
         <div className="vinsign-heading">
           <h2 className="vinsign-title">과제 모아보기</h2>
@@ -44,15 +36,18 @@ const handleSolveClick = () => {
 
         {/* Task Cards */}
         <div className="vinsign-cards">
+          {loading && <p>로딩 중...</p>}
+          {error && <p>오류: {error}</p>}
+          {!loading && !error && tasks.length === 0 && <p>등록된 과제가 없습니다.</p>}
           {tasks.map((task) => (
-            <div key={task.title} className="vinsign-card">
+            <div key={task.id} className="vinsign-card">
               <div className="vinsign-card-top">
                 <h3 className="vinsign-card-title">{task.title}</h3>
-                <p className="vinsign-card-meta">{task.author} · {task.date}</p>
+                <p className="vinsign-card-meta">{task.createdAt ?? ''}</p>
               </div>
-              <p className="vinsign-card-desc">{task.description}</p>
+              <p className="vinsign-card-desc">{task.content}</p>
               <div className="vinsign-card-action">
-                <button className="vinsign-card-btn" onClick={handleSolveClick}>문제 풀기</button>
+                <button className="vinsign-card-btn" onClick={() => handleSolveClick(task.id)}>문제 풀기</button>
               </div>
             </div>
           ))}

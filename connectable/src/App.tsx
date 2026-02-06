@@ -6,11 +6,8 @@ import SubPage from './pages/SubPage'
 import TaskCollection from './pages/TaskCollection'
 import MainPage from './pages/HomePage/MainPage'
 import CreateTaskPage from './pages/CreateTaskPage/CreateTaskPage'
-import TaskColletion from './pages/TaskCollection'
 import TaskDetail from './pages/TaskDetail'
 import CompanyTaskDetail from './pages/CompanyTaskDetail'
-
-  
 
 function App() {
   return (
@@ -21,8 +18,8 @@ function App() {
       <Route path="/taskcollection" element={<TaskCollection/>} />
       <Route path="/create-task" element={<CreateTaskPage/>} />
       <Route path="/" element={<MainPage/>}/>
-      <Route path="tasks" element={<TaskCollection/>}/>
-      <Route path="TaskDetail" element={<TaskDetail/>}/>
+      <Route path="/tasks" element={<TaskCollection/>}/>
+      <Route path="/TaskDetail/:id" element={<TaskDetail/>}/>
       <Route path="/company-task" element={<CompanyTaskDetail/>}/>
     </Routes>
   )
