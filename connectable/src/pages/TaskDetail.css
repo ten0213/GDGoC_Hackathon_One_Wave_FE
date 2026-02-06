@@ -337,3 +337,12 @@
   color: #007bff;                 /* 점수 색상 예시 */
 }
 
+.URL{
+  background-color: #f9fafb;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
