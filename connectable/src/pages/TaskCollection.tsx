@@ -2,6 +2,7 @@ import { FaSearch, FaFile, FaClock, FaCode, FaChartBar, FaCog, FaClipboardList, 
 import './TaskCollection.css';
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
+import Footer from "../layout/Footer/Footer";
 
 
 
@@ -83,26 +84,7 @@ const handleSolveClick = () => {
           </button>
         </div>
       </main>
-
-      {/* Bottom Navigation */}
-      <nav className="vinsign-bottom-nav">
-        <button className="vinsign-nav-item active">
-          <FaClipboardList />
-          <span>과제</span>
-        </button>
-        <button className="vinsign-nav-item">
-          <FaUsers />
-          <span>지원자</span>
-        </button>
-        <button className="vinsign-nav-item">
-          <FaChartBar />
-          <span>분석</span>
-        </button>
-        <button className="vinsign-nav-item">
-          <FaCog />
-          <span>설정</span>
-        </button>
-      </nav>
+      <Footer/>
     </div>
   );
 }

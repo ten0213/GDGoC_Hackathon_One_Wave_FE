@@ -67,7 +67,7 @@ export default function TaskDetail() {
             <div className="td-column">
               <div className="card">
                 <div className="card-header">
-                  <h3 className="card-title">구현과제 상세 페이지</h3>
+                  <h3 className="card-title">[제목란]</h3>
                 </div>
 
                 <div className="td-content-box">
@@ -134,11 +134,7 @@ export default function TaskDetail() {
                         <span className="td-ai-desc">브라우저 자동화 진행</span>
                       </div>
                     </div>
-                    <div className="td-progress-bar">
-                      <div
-                        className="td-progress-fill"
-                        style={{ width: "75%" }}
-                      />
+                    <div className="spinner">
                     </div>
                   </div>
 
@@ -149,7 +145,7 @@ export default function TaskDetail() {
                       </div>
                       <div className="td-ai-info">
                         <span className="td-ai-name">Sub-task 평가</span>
-                        <span className="td-ai-desc">5/7 완료</span>
+                        <span className="td-ai-desc">1/3 완료</span>
                       </div>
                     </div>
                     <span className="td-badge td-badge-progress">진행 중</span>
