@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { FaArrowRight } from "react-icons/fa";
+
 import './TaskCollection.css';
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
@@ -53,17 +53,6 @@ export default function VinsignPage() {
           ))}
         </div>
 
-        {/* CTA Banner */}
-        <div className="vinsign-cta">
-          <div className="vinsign-cta-text">
-            <h3 className="vinsign-cta-title">과제가 더 필요하신가요?</h3>
-            <p className="vinsign-cta-subtitle">다른 기업이 만든 추가 과제를 풀어보세요.</p>
-          </div>
-          <button className="vinsign-cta-btn">
-            <span>더보기</span>
-            <FaArrowRight />
-          </button>
-        </div>
       </main>
       <Footer/>
     </div>
