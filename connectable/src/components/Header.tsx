@@ -39,14 +39,10 @@ const handleLogout = () => {
 
                 {/* Navigation & Profile Section */}
                 <nav className="header-nav">
-                    <a href="#" className="header-link">구인자</a>
-                    <a href="#" className="header-link">구직자</a>
+
 
                     <div className="header-profile">
-                        <div className="notification-wrapper">
-                            <div className="notification-icon"><FaBell /></div>
-                            <div className="notification-badge" />
-                        </div>
+
 
                         <div className="user-avatar">
                             <img src={DEFAULT_AVATAR} alt="User Avatar" />
