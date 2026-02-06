@@ -2,5 +2,8 @@
   "framework": "vite",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+  "rewrites": [
+    { "source": "/api/:path*", "destination": "http://34.22.80.216:8080/api/:path*" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
 }
