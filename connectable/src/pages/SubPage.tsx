@@ -1,4 +1,4 @@
-import { FaArrowRight, FaCheckCircle, FaClock, FaBuilding, FaUserGraduate, FaChevronRight, FaStar } from "react-icons/fa";
+import { FaArrowRight, FaBuilding, FaUserGraduate, FaChevronRight, FaStar } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import './SubPage.css';
@@ -23,19 +23,15 @@ export default function MainPage() {
                     <nav className="nav-menu">
                         <a href="#" className="nav-item active">
                             <div className="nav-icon"><FaArrowRight /></div>
-                            <span className="nav-text">모든 과제</span>
+                            <span className="nav-text">구현 시작</span>
                         </a>
-                        <a href="#" className="nav-item">
-                            <div className="nav-icon"><FaClock /></div>
-                            <span className="nav-text">진행 중</span>
-                        </a>
-                        <a href="#" className="nav-item">
-                            <div className="nav-icon"><FaCheckCircle /></div>
-                            <span className="nav-text">채점 완료</span>
-                        </a>
-                        <a href="#" className="nav-item">
+                        <a href="#" className="nav-item" onClick={(e) => { e.preventDefault(); navigate('/create-task'); }}>
                             <div className="nav-icon"><PlusIcon /></div>
                             <span className="nav-text">새 과제 생성</span>
+                        </a>
+                        <a href="#" className="nav-item" onClick={(e) => { e.preventDefault(); navigate('/taskcollection'); }}>
+                            <div className="nav-icon"><FaArrowRight /></div>
+                            <span className="nav-text">모든 과제</span>
                         </a>
                     </nav>
                 </aside>
@@ -47,10 +43,6 @@ export default function MainPage() {
                             <h1>구현 시작하기</h1>
                             <p className="page-description">구현과제를 생성하거나, 구현과제를 풀고 채점해보세요.</p>
                         </div>
-                        <button className="create-task-btn" onClick={() => navigate('/create-task')}>
-                            <span className="btn-icon">+</span>
-                            <span className="btn-text">새 구현과제 생성</span>
-                        </button>
                     </header>
 
                     <div className="content-grid">

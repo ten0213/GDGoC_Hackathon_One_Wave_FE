@@ -2,14 +2,17 @@
 .main {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 32px;
-  padding: 24px 32px;
+  padding: 64px 40px;
 }
 
 /* ===== Page Header ===== */
 .pageHeader {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
   gap: 8px;
 }
 
@@ -235,8 +238,13 @@
   line-height: 24px;
 }
 
-.addBtn:hover {
+.addBtn:hover:not(:disabled) {
   background-color: #1350d9;
+}
+
+.addBtn:disabled {
+  background-color: #99a1af;
+  cursor: not-allowed;
 }
 
 .addBtnIcon {
@@ -388,6 +396,11 @@
   cursor: pointer;
 }
 
-.submitBtn:hover {
+.submitBtn:hover:not(:disabled) {
   background-color: #1350d9;
+}
+
+.submitBtn:disabled {
+  background-color: #99a1af;
+  cursor: not-allowed;
 }
