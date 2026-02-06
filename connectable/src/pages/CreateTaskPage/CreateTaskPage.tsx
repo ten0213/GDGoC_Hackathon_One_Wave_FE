@@ -19,6 +19,7 @@ export default function CreateTaskPage() {
   ])
 
   const addSubtask = () => {
+    if (subtasks.length >= 3) return
     setSubtasks([...subtasks, { id: nextId++, title: '', description: '' }])
   }
 
@@ -95,7 +96,11 @@ export default function CreateTaskPage() {
                   </div>
                   <h3 className={styles.sectionTitle}>서브테스크</h3>
                 </div>
-                <button className={styles.addBtn} onClick={addSubtask}>
+                <button
+                  className={styles.addBtn}
+                  onClick={addSubtask}
+                  disabled={subtasks.length >= 3}
+                >
                   <span className={styles.addBtnIcon}>+</span>
                   <span>추가</span>
                 </button>
@@ -138,7 +143,17 @@ export default function CreateTaskPage() {
             </div>
 
             <div className={styles.submitSection}>
-              <button className={styles.submitBtn}>제출하기</button>
+              <button
+                className={styles.submitBtn}
+                disabled={
+                  subtasks.length === 0 ||
+                  !title.trim() ||
+                  !content.trim() ||
+                  subtasks.some((s) => !s.title.trim() || !s.description.trim())
+                }
+              >
+                제출하기
+              </button>
             </div>
           </div>
         </div>
