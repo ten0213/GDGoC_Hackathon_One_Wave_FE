@@ -8,6 +8,9 @@ export default function MainPage() {
     const handleTasksClick = () => {
         navigate('/tasks');
     };
+    const handleCompanyTaskClick = () => {
+        navigate('/company-task');
+    };
 
     return (
         <div className="main-page">
@@ -66,21 +69,21 @@ export default function MainPage() {
                                 </p>
 
                                 <div className="list-container">
-                                    <div className="list-item">
+                                    <div className="list-item" onClick={handleCompanyTaskClick} style={{ cursor: 'pointer' }}>
                                         <div className="list-content-row">
                                             <div className="item-info">
                                                 <h4 className="item-title">반응형 네비게이션 바</h4>
-                                                <p className="item-meta">제출자: 24명 • 마감: 2025.04.15</p>
+                                                <p className="item-meta">제출자: 24명</p>
                                             </div>
                                             <div className="item-arrow"><FaChevronRight /></div>
                                         </div>
                                     </div>
 
-                                    <div className="list-item">
+                                    <div className="list-item" onClick={handleCompanyTaskClick} style={{ cursor: 'pointer' }}>
                                         <div className="list-content-row">
                                             <div className="item-info">
                                                 <h4 className="item-title">상품 필터 UI</h4>
-                                                <p className="item-meta">제출자: 18명 • 마감: 2025.04.10</p>
+                                                <p className="item-meta">제출자: 18명</p>
                                             </div>
                                             <div className="item-arrow"><FaChevronRight /></div>
                                         </div>
