@@ -32,6 +32,42 @@ export async function getAssignmentById(id: string): Promise<Assignment> {
   return wrapper.data;
 }
 
+export interface GradingResult {
+  taskName: string;
+  isPassed: boolean;
+}
+
+export interface GradingSummary {
+  passedCount: number;
+  totalCount: number;
+  passRate: string;
+}
+
+export interface SubmissionResponse {
+  id: string;
+  fileUrl: string;
+  status: 'PENDING' | 'COMPLETED' | 'FAILED';
+  gradingResults: GradingResult[];
+  summary: GradingSummary;
+  createdAt: string;
+}
+
+export async function submitAssignment(
+  assignmentId: string,
+  userId: string,
+  url: string,
+): Promise<SubmissionResponse> {
+  const res = await fetch(`/api/assignments/${assignmentId}/submissions`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ userId, url }),
+  });
+  if (!res.ok) throw new Error(`Failed to submit: ${res.status}`);
+  const wrapper: ApiWrapper<SubmissionResponse> = await res.json();
+  if (!wrapper.success) throw new Error(wrapper.error || 'Unknown error');
+  return wrapper.data;
+}
+
 export async function createAssignment(body: {
   title: string;
   content: string;
