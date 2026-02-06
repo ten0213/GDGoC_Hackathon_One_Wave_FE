@@ -1,6 +1,7 @@
 import { FaCode, FaBell } from "react-icons/fa";
 import './Header.css';
 import { useNavigate } from 'react-router-dom'
+import { getCurrentUser, logoutUser } from '../utils/auth';
 
 // Using a placeholder avatar if the asset path from Figma isn't directly usable or as a default
 const DEFAULT_AVATAR = "https://ui-avatars.com/api/?name=User&background=random";
@@ -10,9 +11,17 @@ export default function Header() {
 
 
 const navigate = useNavigate();
+const user = getCurrentUser();
 
 const ConstableClick2 = () =>{
     navigate('/')
+}
+
+const handleLogout = () => {
+    if (window.confirm('정말로 로그아웃하시겠습니까?')) {
+        logoutUser();
+        navigate('/login');
+    }
 }
 
 
@@ -42,6 +51,12 @@ const ConstableClick2 = () =>{
                         <div className="user-avatar">
                             <img src={DEFAULT_AVATAR} alt="User Avatar" />
                         </div>
+
+                        {user && (
+                            <span className="user-greeting">안녕하세요, {user.name} 님</span>
+                        )}
+
+                        <button className="logout-btn" onClick={handleLogout}>로그아웃</button>
                     </div>
                 </nav>
             </div>

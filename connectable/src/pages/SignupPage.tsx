@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { registerUser } from '../utils/auth';
 import './Auth.css';
 
 const SignupPage: React.FC = () => {
@@ -8,10 +9,28 @@ const SignupPage: React.FC = () => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [email, setEmail] = useState('');
+    const [error, setError] = useState('');
+    const [success, setSuccess] = useState('');
+    const navigate = useNavigate();
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        console.log('Signup attempt:', { name, identifier, email, password, confirmPassword });
+        setError('');
+        setSuccess('');
+
+        if (password !== confirmPassword) {
+            setError('비밀번호가 일치하지 않습니다.');
+            return;
+        }
+
+        const result = registerUser({ name, identifier, email, password });
+        if (!result.success) {
+            setError(result.message);
+            return;
+        }
+
+        setSuccess(result.message);
+        setTimeout(() => navigate('/login'), 1000);
     };
 
     return (
@@ -20,6 +39,9 @@ const SignupPage: React.FC = () => {
                 <div className="auth-content">
                     <h2 className="auth-title">회원가입</h2>
                     <p className="auth-subtitle">티오피컴의 회원이 되어 다양한 혜택을 누려보세요</p>
+
+                    {error && <div className="auth-error">{error}</div>}
+                    {success && <div className="auth-success">{success}</div>}
 
                     <form onSubmit={handleSubmit}>
                         <div>
@@ -34,7 +56,7 @@ const SignupPage: React.FC = () => {
                             />
                         </div>
                         <div>
-                            <label className="form-label">사용자 이름</label>
+                            <label className="form-label">사용자 ID</label>
                             <input
                                 type="text"
                                 className="form-input"

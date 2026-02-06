@@ -1,6 +1,8 @@
 import { useNavigate } from 'react-router-dom'
-import Header from '../../components/Header/Unlogin_Header'
+import Unlogin_Header from '../../components/Header/Unlogin_Header'
+import LoggedInHeader from '../../components/Header'
 import Footer from '../../layout/Footer/Footer'
+import { isLoggedIn } from '../../utils/auth'
 import ProcessCard from '../../components/ProcessCard/ProcessCard'
 import ScoreCard from '../../components/ScoreCard/ScoreCard'
 import styles from './MainPage.module.css'
@@ -47,7 +49,7 @@ export default function HomePage() {
 
   return (
     <div>
-      <Header />
+      {isLoggedIn() ? <LoggedInHeader /> : <Unlogin_Header />}
 
       <main className={styles.main}>
         {/* Hero Section */}
