@@ -38,8 +38,7 @@ const SignupPage: React.FC = () => {
             <main className="auth-main">
                 <div className="auth-content">
                     <h2 className="auth-title">회원가입</h2>
-                    <p className="auth-subtitle">티오피컴의 회원이 되어 다양한 혜택을 누려보세요</p>
-
+            
                     {error && <div className="auth-error">{error}</div>}
                     {success && <div className="auth-success">{success}</div>}
 
