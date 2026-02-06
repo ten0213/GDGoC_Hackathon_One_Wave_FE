@@ -9,6 +9,10 @@ export default function Header() {
   const ConnectableClick = () =>{
     navigate('/')
   }
+  const handleSignClick = () => {
+    navigate('/signup')
+  }
+
 
   return (
     <header className={styles.header}>
@@ -20,7 +24,7 @@ export default function Header() {
         <button className={styles.loginBtn} onClick={handleLoginClick}>
           로그인
         </button>
-        <button className={styles.startBtn}>무료로 시작하기</button>
+        <button className={styles.loginBtn} onClick={handleSignClick}>회원가입</button>
       </div>
     </header>
   )

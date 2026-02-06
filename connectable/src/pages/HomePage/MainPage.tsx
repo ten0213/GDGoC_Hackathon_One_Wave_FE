@@ -63,7 +63,7 @@ export default function HomePage() {
             모든 과정이 투명하고, 세부 과제별 결과를 실시간으로 확인하세요.
           </p>
           <div className={styles.heroActions}>
-            <button className={styles.btnPrimary} onClick={handleExperienceClick}>채험하기</button>
+            <button className={styles.btnPrimary} onClick={handleExperienceClick}>시작하기</button>
           </div>
         </section>
 
