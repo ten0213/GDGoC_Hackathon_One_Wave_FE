@@ -1,0 +1,64 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #d1d5dc;
+  z-index: 100;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo i {
+  font-size: 24px;
+  color: #155dfc;
+}
+
+.logo span {
+  font-size: 23px;
+  font-weight: 700;
+  color: #101828;
+  line-height: 32px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.loginBtn {
+  padding: 8px 20px;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #364153;
+  line-height: 24px;
+}
+
+.loginBtn:hover {
+  background-color: #f9fafb;
+}
+
+.startBtn {
+  padding: 8px 20px;
+  border-radius: 4px;
+  background-color: #155dfc;
+  font-size: 15px;
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 24px;
+}
+
+.startBtn:hover {
+  background-color: #1350d9;
+}
