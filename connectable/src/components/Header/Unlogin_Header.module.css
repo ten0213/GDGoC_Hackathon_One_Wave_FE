@@ -16,6 +16,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
+  cursor: pointer;
 }
 
 .logo i {
@@ -24,7 +25,7 @@
 }
 
 .logo span {
-  font-size: 23px;
+  font-size: 24px;
   font-weight: 700;
   color: #101828;
   line-height: 32px;

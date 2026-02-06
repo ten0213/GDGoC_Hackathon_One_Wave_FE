@@ -1,8 +1,10 @@
 import { FaArrowRight, FaCheckCircle, FaClock, FaBuilding, FaUserGraduate, FaChevronRight, FaStar } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import './SubPage.css';
 
 export default function MainPage() {
+    const navigate = useNavigate();
     return (
         <div className="main-page">
             <Header />
@@ -38,10 +40,10 @@ export default function MainPage() {
                 <main className="main-content">
                     <header className="header-section">
                         <div className="page-title">
-                            <h1>프론트엔드 구현과제 채점</h1>
-                            <p className="page-description">AI가 Playwright를 이용해 브라우저 엔드투엔드 테스트를 실행합니다.</p>
+                            <h1>구현 시작하기</h1>
+                            <p className="page-description">구현과제를 생성하거나, 구현과제를 풀고 채점해보세요.</p>
                         </div>
-                        <button className="create-task-btn">
+                        <button className="create-task-btn" onClick={() => navigate('/create-task')}>
                             <span className="btn-icon">+</span>
                             <span className="btn-text">새 구현과제 생성</span>
                         </button>
@@ -57,13 +59,9 @@ export default function MainPage() {
                                 </div>
 
                                 <div className="card-actions">
-                                    <button className="action-btn-primary">
+                                    <button className="action-btn-primary" onClick={() => navigate('/create-task')}>
                                         <span className="icon"><PlusIcon /></span>
                                         <span className="text">구현과제 생성</span>
-                                    </button>
-                                    <button className="action-btn-secondary">
-                                        <span className="icon"><FaArrowRight /></span>
-                                        <span className="text">Sub-task 추가</span>
                                     </button>
                                 </div>
 

@@ -1,0 +1,402 @@
+/* ===== Main Layout ===== */
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  padding: 24px 32px;
+}
+
+
+/* ===== Page Header ===== */
+.pageHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pageTitle {
+  font-size: 30px;
+  font-weight: 700;
+  color: #101828;
+  line-height: 36px;
+}
+
+.pageDescription {
+  font-size: 15px;
+  font-weight: 400;
+  color: #4a5565;
+  line-height: 24px;
+}
+
+/* ===== Form Container ===== */
+.formContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-height: 1142px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 907px;
+  max-width: 100%;
+}
+
+/* ===== Section Card ===== */
+.section {
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.sectionIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sectionIcon i {
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.iconBlue {
+  background-color: #2b7fff;
+}
+
+.iconGreen {
+  background-color: #00c950;
+}
+
+.iconPurple {
+  background-color: #ad46ff;
+}
+
+.sectionTitle {
+  font-size: 19px;
+  font-weight: 600;
+  color: #101828;
+  line-height: 28px;
+}
+
+/* ===== Title Section ===== */
+.titleSection {
+  position: relative;
+  height: 180px;
+}
+
+.titleSection .sectionHeader {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  right: 24px;
+  margin-bottom: 0;
+}
+
+.titleInput {
+  position: absolute;
+  top: 72px;
+  left: 24px;
+  right: 24px;
+  padding: 15px 16px;
+  background-color: #ffffff;
+  border: 1px solid #d1d5dc;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 17px;
+  font-weight: 400;
+  color: #000000;
+  line-height: normal;
+  outline: none;
+}
+
+.titleInput::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.titleInput:focus {
+  border-color: #2b7fff;
+}
+
+.titleHint {
+  position: absolute;
+  top: 134px;
+  left: 24px;
+  right: 24px;
+  font-size: 13px;
+  font-weight: 400;
+  color: #6a7282;
+  line-height: 20px;
+}
+
+/* ===== Content Section ===== */
+.contentSection {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.textarea {
+  width: 100%;
+  min-height: 264px;
+  padding: 12px 16px;
+  background-color: #ffffff;
+  border: 1px solid #d1d5dc;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 400;
+  color: #000000;
+  line-height: 24px;
+  outline: none;
+  resize: none;
+}
+
+.textarea::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.textarea:focus {
+  border-color: #2b7fff;
+}
+
+.contentFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.formatButtons {
+  display: flex;
+  gap: 8px;
+}
+
+.formatBtn {
+  width: 32px;
+  height: 32px;
+  background-color: #e5e7eb;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  font-size: 14px;
+  color: #1e2939;
+}
+
+.formatBtn:hover {
+  background-color: #d1d5dc;
+}
+
+.charCount {
+  font-size: 13px;
+  font-weight: 400;
+  color: #6a7282;
+  line-height: 20px;
+}
+
+/* ===== Subtask Section ===== */
+.subtaskSection {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.subtaskHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.subtaskHeaderLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.addBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background-color: #155dfc;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 24px;
+}
+
+.addBtn:hover {
+  background-color: #1350d9;
+}
+
+.addBtnIcon {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 16px;
+}
+
+/* ===== Subtask Card ===== */
+.subtaskList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.subtaskCard {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 16px;
+  background-color: #ffffff;
+  border: 1px solid #d1d5dc;
+  border-radius: 8px;
+}
+
+.subtaskNumber {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 25px;
+  border: 1px solid #99a1af;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #000000;
+  line-height: 24px;
+  flex-shrink: 0;
+}
+
+.subtaskContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.subtaskTitleInput {
+  width: 100%;
+  padding: 4px 8px;
+  border: none;
+  border-bottom: 1px solid #e5e7eb;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  color: #000000;
+  line-height: 24px;
+  outline: none;
+  background: transparent;
+}
+
+.subtaskTitleInput::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.subtaskTitleInput:focus {
+  border-bottom-color: #2b7fff;
+}
+
+.subtaskDescInput {
+  width: 100%;
+  padding: 4px 8px 24px;
+  border: none;
+  border-bottom: 1px solid #e5e7eb;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 400;
+  color: #4a5565;
+  line-height: 20px;
+  outline: none;
+  background: transparent;
+  resize: none;
+}
+
+.subtaskDescInput::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.subtaskDescInput:focus {
+  border-bottom-color: #2b7fff;
+}
+
+.deleteBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  color: #99a1af;
+  font-size: 16px;
+}
+
+.deleteBtn:hover {
+  color: #ef4444;
+}
+
+/* ===== Empty Subtask ===== */
+.subtaskEmpty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 24px 16px;
+  background-color: #ffffff;
+  border: 1px dashed #d1d5dc;
+  border-radius: 8px;
+}
+
+.subtaskEmptyIcon {
+  font-size: 24px;
+  font-weight: 700;
+  color: #99a1af;
+  line-height: 24px;
+}
+
+.subtaskEmptyText {
+  font-size: 15px;
+  font-weight: 400;
+  color: #6a7282;
+  line-height: 24px;
+  text-align: center;
+}
+
+.submitSection {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0;
+  background: transparent;
+  border: none;
+}
+
+.submitBtn {
+  padding: 14px 40px;
+  background-color: #155dfc;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 24px;
+  cursor: pointer;
+}
+
+.submitBtn:hover {
+  background-color: #1350d9;
+}
+

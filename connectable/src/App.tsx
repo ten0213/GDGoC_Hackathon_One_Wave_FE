@@ -5,6 +5,7 @@ import SignupPage from './pages/SignupPage'
 import SubPage from './pages/SubPage'
 import TaskCollection from './pages/TaskCollection'
 import MainPage from './pages/HomePage/MainPage'
+import CreateTaskPage from './pages/CreateTaskPage/CreateTaskPage'
 
   
 
@@ -15,6 +16,7 @@ function App() {
       <Route path="/signup" element={<SignupPage />} />
       <Route path="/subpage" element={<SubPage />} />
       <Route path="/taskcollection" element={<TaskCollection/>} />
+      <Route path="/create-task" element={<CreateTaskPage/>} />
       <Route path="/" element={<MainPage/>}></Route>
     </Routes>
   )

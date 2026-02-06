@@ -1,15 +1,27 @@
 import { FaCode, FaBell } from "react-icons/fa";
 import './Header.css';
+import { useNavigate } from 'react-router-dom'
 
 // Using a placeholder avatar if the asset path from Figma isn't directly usable or as a default
 const DEFAULT_AVATAR = "https://ui-avatars.com/api/?name=User&background=random";
 
+
 export default function Header() {
+
+
+const navigate = useNavigate();
+
+const ConstableClick2 = () =>{
+    navigate('/')
+}
+
+
+
     return (
         <header className="header">
             <div className="header-container">
                 {/* Logo Section */}
-                <div className="header-left">
+                <div className="header-left" onClick={ConstableClick2}>
                     <div className="brand-icon">
                         <FaCode />
                     </div>
