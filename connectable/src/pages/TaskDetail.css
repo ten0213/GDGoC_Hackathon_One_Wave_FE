@@ -281,3 +281,59 @@
   line-height: 24px;
   color: #000000;
 }
+
+/* 제출 전 대기 상태 */
+.td-idle-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 64px 24px;
+  text-align: center;
+}
+
+.td-idle-icon {
+  font-size: 48px;
+  color: #d1d5dc;
+  margin-bottom: 16px;
+}
+
+.td-idle-title {
+  font-family: 'Inter', 'Noto Sans KR', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #364153;
+  margin: 0 0 8px 0;
+}
+
+.td-idle-desc {
+  font-family: 'Inter', 'Noto Sans KR', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  color: #6a7282;
+  margin: 0;
+}
+
+/* 제출 완료 후 비활성 버튼 */
+.td-submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.DetailResultForm {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;                   
+  padding: 5px 10px;       
+}
+
+.DetailResultName {
+  font-weight: bold;
+}
+
+.DetailResultScore {
+  color: #007bff;                 /* 점수 색상 예시 */
+}
+

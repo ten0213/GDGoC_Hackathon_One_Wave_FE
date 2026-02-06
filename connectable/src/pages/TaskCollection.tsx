@@ -16,20 +16,6 @@ const tasks = [
     description: "기존 이커머스 앱의 사용자 경험을 분석하고 전체적인 인터페이스를 재설계한 프로젝트입니다.",
     techIcon: "file" as const,
   },
-  {
-    title: "백엔드 API 설계",
-    author: "이민수",
-    date: "2025.02",
-    description: "사용자 관리 및 결제 시스템을 위한 RESTful API 설계 및 구현 코드 리뷰 과제입니다.",
-    techIcon: "code" as const,
-  },
-  {
-    title: "데이터 시각화 대시보드",
-    author: "박서연",
-    date: "2025.01",
-    description: "실시간 판매 데이터를 시각화하고 인사이트를 제공하는 관리자 대시보드 프로토타입입니다.",
-    techIcon: "code" as const,
-  },
 ];
 
 function TechIcon({ type }: { type: "file" | "code" }) {
