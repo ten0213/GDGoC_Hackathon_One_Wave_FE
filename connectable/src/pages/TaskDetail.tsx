@@ -121,7 +121,7 @@ export default function TaskDetail() {
                 <div className="td-content-box">
                   <h4 className="td-section-title">서브테스크 내용</h4>
                   <div className="td-subtask-lineup">
-                    {assignment.subtasks.map((st, i) => (
+                    {(assignment.subTasks ?? []).map((st, i) => (
                       <span key={i}>-{st}<br/></span>
                     ))}
                   </div>

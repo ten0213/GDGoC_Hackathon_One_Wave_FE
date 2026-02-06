@@ -39,7 +39,7 @@ export default function CreateTaskPage() {
       const result = await createAssignment({
         title,
         content,
-        subtasks: subtasks.map((s) => s.title),
+        subTasks: subtasks.map((s) => s.title),
         userId: getUserId(),
       })
       navigate(`/TaskDetail/${result.id}`)
