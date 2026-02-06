@@ -1,0 +1,276 @@
+/* TaskDetail.css — SubPage와 통일된 레이아웃 */
+
+/* 페이지 전체 */
+.td-page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  min-height: 100vh;
+  position: relative;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+/* Header 아래 본문 래퍼 (sidebar + main) */
+.td-content-wrapper {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Main Content Area */
+.td-main {
+  flex: 1 0 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  gap: 32px;
+  overflow-y: auto;
+  box-sizing: border-box;
+  background-color: white;
+}
+
+/* 2단 그리드 */
+.td-grid {
+  display: flex;
+  gap: 32px;
+  width: 100%;
+  align-items: flex-start;
+}
+
+.td-column {
+  flex: 1 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 0;
+}
+
+/* ===== 왼쪽 카드 내부 ===== */
+
+/* 구현과제 내용 박스 */
+.td-content-box {
+  background-color: #f9fafb;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.td-section-title {
+  font-family: 'Inter', 'Noto Sans KR', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 24px;
+  color: #000000;
+  margin: 0;
+}
+
+.td-description {
+  font-family: 'Inter', 'Noto Sans KR', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 24px;
+  color: #364153;
+  margin: 0;
+}
+
+/* 업로드 섹션 */
+.td-upload-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 8px;
+}
+
+.td-upload-area {
+  background-color: #f9fafb;
+  border: 2px dashed #d1d5dc;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 16px;
+  cursor: pointer;
+}
+
+.td-upload-icon {
+  font-size: 36px;
+  color: #99a1af;
+  margin-bottom: 16px;
+}
+
+.td-upload-text {
+  font-family: 'Inter', 'Noto Sans KR', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 24px;
+  color: #000000;
+  margin: 0 0 8px 0;
+}
+
+.td-upload-hint {
+  font-family: 'Inter', 'Noto Sans KR', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 20px;
+  color: #6a7282;
+  margin: 0;
+}
+
+/* 문제 풀기 버튼 */
+.td-btn-wrap {
+  display: flex;
+  justify-content: center;
+  padding-top: 8px;
+}
+
+.td-submit-btn {
+  background-color: #155dfc;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 48px;
+  font-family: 'Inter', 'Noto Sans KR', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 24px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.td-submit-btn:hover {
+  background-color: #1049c8;
+}
+
+/* ===== 오른쪽 카드 내부 ===== */
+
+/* AI 채점 진행 */
+.td-ai-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.td-ai-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.td-ai-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.td-ai-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.td-ai-icon-blue {
+  background-color: #dbeafe;
+  color: #155dfc;
+}
+
+.td-ai-icon-purple {
+  background-color: #f3e8ff;
+  color: #9810fa;
+}
+
+.td-ai-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.td-ai-name {
+  font-family: 'Inter', 'Noto Sans KR', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 24px;
+  color: #000000;
+}
+
+.td-ai-desc {
+  font-family: 'Inter', 'Noto Sans KR', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 20px;
+  color: #6a7282;
+}
+
+.td-progress-bar {
+  width: 128px;
+  height: 8px;
+  background-color: #e5e7eb;
+  border-radius: 9999px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.td-progress-fill {
+  height: 100%;
+  background-color: #00c950;
+  border-radius: 9999px;
+}
+
+/* 뱃지 공통 */
+.td-badge {
+  font-family: 'Inter', 'Noto Sans KR', sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 20px;
+  padding: 4px 12px;
+  border-radius: 9999px;
+}
+
+.td-badge-pass {
+  background-color: #dcfce7;
+  color: #016630;
+}
+
+.td-badge-fail {
+  background-color: #ffe2e2;
+  color: #9f0712;
+}
+
+.td-badge-progress {
+  background-color: #dcfce7;
+  color: #016630;
+}
+
+/* 채점 결과 리스트 */
+.td-results-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.td-result-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+}
+
+.td-result-label {
+  font-family: 'Inter', 'Noto Sans KR', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 24px;
+  color: #000000;
+}
