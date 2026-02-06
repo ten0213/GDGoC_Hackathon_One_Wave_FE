@@ -5,6 +5,10 @@ import './SubPage.css';
 
 export default function MainPage() {
     const navigate = useNavigate();
+    const handleTasksClick = () => {
+        navigate('/tasks');
+    };
+
     return (
         <div className="main-page">
             <Header />
@@ -101,7 +105,7 @@ export default function MainPage() {
                                     <h3 className="card-title">구직자</h3>
                                 </div>
 
-                                <button className="list-btn-view-all">
+                                <button className="list-btn-view-all" onClick={handleTasksClick}>
                                     모든 구현과제 리스트 보기
                                 </button>
                             </div>
